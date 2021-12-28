@@ -1,13 +1,13 @@
 package com.example.tipcalculator
 
-import android.nfc.Tag
+import android.animation.ArgbEvaluator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.SeekBar
-import android.widget.Toast
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 private const val INITIAL_TIP_PERCENT=15
 class MainActivity : AppCompatActivity() {
@@ -18,10 +18,13 @@ class MainActivity : AppCompatActivity() {
         sB_tipBar.progress = INITIAL_TIP_PERCENT
         tV_tipPercent.text = "$INITIAL_TIP_PERCENT %"
 
+        updateTipDescription(INITIAL_TIP_PERCENT)
+
         sB_tipBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, progress: Int, fromUser: Boolean) {
                 tV_tipPercent.text = "$progress %"
                 computeTipandTotal()
+                updateTipDescription(progress)
 
 
             }
@@ -50,6 +53,27 @@ class MainActivity : AppCompatActivity() {
                 }
 
             })
+
+    }
+
+    private fun updateTipDescription(tipPercent: Int) {
+        val tipDesc = when (tipPercent) {
+            in 0..9 -> "poor"
+            in 10..14 -> "Acceptable"
+            in 15..19 -> "Good"
+            in 20..24 -> "Great"
+            else -> "Amazing"
+        }
+        tV_tipDescription.text= tipDesc
+        //Update the color based on tip description
+
+        val color = ArgbEvaluator().evaluate(
+            (tipPercent.toFloat() / sB_tipBar.max),
+            ContextCompat.getColor(this, R.color.worstTip),
+            ContextCompat.getColor(this,R.color.bestTip)
+        ) as Int
+        tV_tipDescription.setTextColor(color)
+
 
     }
 

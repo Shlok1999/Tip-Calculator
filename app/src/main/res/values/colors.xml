@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="darkBlue">#244B6E</color>
+    <color name="backGround_blue">#EFECFB</color>
+    <color name="worstTip">#DC1E0B</color>
+    <color name="bestTip">#35BA01</color>
+
+    //
 </resources>
