@@ -112,6 +112,21 @@
         app:layout_constraintVertical_bias="0.629" />
 
     <TextView
+        android:id="@+id/tV_tipDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acceptable"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.932" />
+
+    <TextView
         android:id="@+id/tV_total"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -128,12 +143,12 @@
         app:layout_constraintVertical_bias="0.629" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="🧡 Made By Shlok Ranjan 🧡"
         android:textColor="@color/black"
         android:textSize="15dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.456"
