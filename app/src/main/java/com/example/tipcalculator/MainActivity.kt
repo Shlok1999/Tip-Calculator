@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         val totalAmount = base_amount + tip_amount
 
         //Update the UI
+        //%.2f stops the calculation at 2 digits after decimal
         tV_tipTotal.text = "%.2f".format(tip_amount)
         tV_total.text= "%.2f".format(totalAmount)
 
